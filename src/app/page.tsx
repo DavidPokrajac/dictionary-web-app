@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import SearchInput from './components/SearchInput';
 import Result from './components/Result';
+import Header from './components/Header';
 import {Suspense} from 'react';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
 
   return (
     <>
+      <Header />
       <SearchInput onChange={handleChange} value={query} />
       <Suspense fallback={<div>Loading...</div>}>
         <Result searchTerm={query} />
