@@ -9,7 +9,7 @@ const inconsolata = localFont({
 
 const inter = localFont({
   src: '../../public/assets/fonts/inter/Inter-VariableFont_slnt,wght.woff2',
-  variable: '--font-inter-sans-serif'
+  variable: '--font-inter-sans'
 });
 
 const lora = localFont({
@@ -35,11 +35,10 @@ export default function RootLayout({
   children
 }: Readonly<{children: React.ReactNode}>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inconsolata.variable} ${inter.variable} ${lora.variable} antialiased`}>
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${inconsolata.variable} ${inter.variable} ${lora.variable} antialiased`}>
+      <body className="text-center">{children}</body>
     </html>
   );
 }
