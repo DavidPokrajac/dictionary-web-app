@@ -6,7 +6,7 @@ interface NoResultsProps {
 
 export default function NoResults({data}: NoResultsProps) {
   return (
-    <div className="mt-[7rem] flex flex-col items-center gap-[2rem]">
+    <div className="mt-[7rem] flex flex-col items-center gap-[2rem] mx-auto w-[90%] max-w-[736px]">
       <Image
         src="/assets/images/confused-face.png"
         alt=""

@@ -32,8 +32,14 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  grid-gap: 2.5rem;
+  grid-gap: 1.5rem;
   grid-auto-rows: auto;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    grid-gap: 2.5rem;
+  }
 }
 
 .meaning-wrapper > * + * {
@@ -48,4 +54,16 @@
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
+}
+
+select:hover {
+  background-color: white;
+}
+
+option:first-of-type:hover {
+  background: white;
+}
+
+img:hover path {
+  fill: white;
 }

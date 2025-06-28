@@ -18,12 +18,12 @@ export default function Header() {
   }, [selectedFont]);
 
   return (
-    <header className="flex max-w-[736px] mx-auto justify-between mt-10 w-full">
-      <Image src={logo} alt="" />
+    <header className="flex w-[90%] max-w-full lg:max-w-[736px] mx-auto justify-between mt-5 md:mt-10">
+      <Image src={logo} alt="" width={28} height={32} />
       <select
         value={selectedFont}
         onChange={fontOptionsHandle}
-        className="font-bold text-h4">
+        className="font-bold text-h5 md:text-h4">
         <option value="sans-serif">Sans Serif</option>
         <option value="serif">Serif</option>
         <option value="mono">Mono</option>
