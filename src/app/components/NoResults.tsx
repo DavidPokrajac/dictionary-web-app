@@ -13,7 +13,9 @@ export default function NoResults({data}: NoResultsProps) {
         width={64}
         height={64}
       />
-      <p className="text-h3 text-(--clr-primary-800) font-bold">{data.title}</p>
+      <p className="text-h3 text-(--clr-primary-800) dark:text-(--clr-primary-100) font-bold">
+        {data.title}
+      </p>
       <p className="text-h4 text-(--clr-primary-400)">
         {data.message} {data.resolution}
       </p>

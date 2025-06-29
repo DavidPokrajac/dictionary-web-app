@@ -37,8 +37,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inconsolata.variable} ${inter.variable} ${lora.variable} antialiased`}>
-      <body className="text-center grid gap-5 md:gap-10 justify-center">
+      className={`${inconsolata.variable} ${inter.variable} ${lora.variable} antialiased transition dark:bg-(--clr-primary-800)`}>
+      <body className="text-center grid gap-5 sm:gap-10 justify-center">
         {children}
       </body>
     </html>

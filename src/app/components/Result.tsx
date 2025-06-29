@@ -29,7 +29,7 @@ export default function Result({searchTerm}: {searchTerm: string}) {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <ul className="w-[90%] lg:max-w-[736px] mx-auto list-none">
+    <ul className="w-[90%] sm:w-[95%] lg:max-w-[736px] mx-auto list-none">
       {data.length > 0 ? (
         data.map((post: PostProps) => {
           console.log(post);
@@ -37,10 +37,10 @@ export default function Result({searchTerm}: {searchTerm: string}) {
             <li key={Math.floor(Math.random() * 1000000)}>
               <article className="main-content text-left">
                 <div className="grid grid-cols-2 grid-rows-[auto_auto] items-center max-w-[736px]">
-                  <h2 className="text-[2rem] md:text-main font-bold">
+                  <h2 className="text-[2rem] sm:text-main font-bold dark:text-(--clr-primary-100)">
                     {post.word}
                   </h2>
-                  <span className="text-(--clr-accent-400) text-h4 md:text-h2 row-start-2 col-start-1">
+                  <span className="text-(--clr-accent-400) text-h4 sm:text-h2 row-start-2 col-start-1">
                     {post.phonetic}
                   </span>
 
@@ -49,7 +49,7 @@ export default function Result({searchTerm}: {searchTerm: string}) {
                     alt=""
                     width={48}
                     height={48}
-                    className="inline-block md:w-[75px] md:h-[75px] col-start-2 row-start-1 row-end-3 justify-self-end rounded-full hover:bg-(--clr-accent-400) hover:text-(--color-primary-100)"
+                    className="inline-block sm:w-[75px] sm:h-[75px] col-start-2 row-start-1 row-end-3 justify-self-end rounded-full hover:bg-(--clr-accent-400) hover:text-(--color-primary-100)"
                   />
                 </div>
                 {post.meanings.map((meaning: any) => {
@@ -57,25 +57,25 @@ export default function Result({searchTerm}: {searchTerm: string}) {
                     <div
                       className="main-content max-w-[736px]"
                       key={Math.floor(Math.random() * 1000000)}>
-                      <span className="flex items-center space-between gap-[1rem] text-(--clr-primary-800) text-h4 md:text-h2 font-bold relative part-of-speech max-w-[736px]">
+                      <span className="flex items-center space-between gap-[1rem] text-(--clr-primary-800) dark:text-(--clr-primary-100) text-h4 sm:text-h2 font-bold relative part-of-speech max-w-[736px]">
                         <span>{meaning.partOfSpeech}</span>
-                        <hr className="h-[2px] w-[100%] text-(--clr-primary-300)" />
+                        <hr className="h-[2px] w-[100%] text-(--clr-primary-300) dark:text-(--clr-primary-500)" />
                       </span>
                       <div className="max-w-[736px]">
-                        <p className="text-(--clr-primary-400) md:text-h3 mb-4">
+                        <p className="text-(--clr-primary-400) sm:text-h3 mb-4">
                           Meaning
                         </p>
-                        <ul className="meaning-wrapper list-disc marker:text-(--clr-accent-400) pl-[1rem] md:pl-[2rem]">
+                        <ul className="meaning-wrapper list-disc marker:text-(--clr-accent-400) pl-[1rem] sm:pl-[2rem] dark:text-(--clr-primary-100)">
                           {meaning.definitions.map((definition: any) => {
                             return (
                               <Fragment
                                 key={Math.floor(Math.random() * 1000000)}>
-                                <li className="pl-[0.5rem] md:pl-[2rem] text-[0.9375rem] md:text-h4">
+                                <li className="pl-[0.5rem] sm:pl-[1.25rem] md:pl-[2rem] text-[0.9375rem] sm:text-h4">
                                   {definition.definition}
                                 </li>
                                 {definition.example && (
                                   <p
-                                    className="pl-[0.5rem] md:pl-[2rem] text-[0.9375rem] md:text-h4 text-(--clr-primary-400)"
+                                    className="pl-[0.5rem] sm:pl-[2rem] text-[0.9375rem] sm:text-h4 text-(--clr-primary-400)"
                                     key={Math.floor(Math.random() * 1000000)}>
                                     {'' + definition.example + ''}
                                   </p>
@@ -87,7 +87,7 @@ export default function Result({searchTerm}: {searchTerm: string}) {
                       </div>
                       {meaning.synonyms.length > 0 && (
                         <div className="flex gap-[1.375rem] max-w-[736px]">
-                          <span className="text-(--clr-primary-400) md:text-h3">
+                          <span className="text-(--clr-primary-400) sm:text-h3">
                             Synonyms
                           </span>
                           <ul className="inline-flex gap-[0.5rem] flex-wrap">
@@ -95,7 +95,7 @@ export default function Result({searchTerm}: {searchTerm: string}) {
                               return (
                                 <li
                                   key={Math.floor(Math.random() * 1000000)}
-                                  className="text-(--clr-accent-400) font-bold md:text-h3">
+                                  className="text-(--clr-accent-400) font-bold sm:text-h3">
                                   {synonym}
                                 </li>
                               );
@@ -107,10 +107,10 @@ export default function Result({searchTerm}: {searchTerm: string}) {
                   );
                 })}
                 <div className="flex text-h5">
-                  <span className="text-(--clr-primary-400) underline mr-[1.5rem]">
+                  <span className="text-(--clr-primary-400) underline mr-[1.5rem] dark:no-underline">
                     Source
                   </span>
-                  <span className="underline mr-[0.5rem]">
+                  <span className="underline mr-[0.5rem] dark:text-(--clr-primary-100) dark:no-underline">
                     {post.sourceUrls[0]}
                   </span>
                   <Image
