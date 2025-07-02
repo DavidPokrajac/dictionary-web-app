@@ -31,7 +31,7 @@ export const useStore = create<GeneralProps>(set => ({
     set(state => {
       return {isDarkMode: !state.isDarkMode};
     }),
-  query: '',
+  query: 'Keyboard',
   handleQueryChange: event =>
     set(() => {
       return {query: event.target.value};

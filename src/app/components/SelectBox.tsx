@@ -5,10 +5,7 @@ import Image from 'next/image';
 import iconArrowDown from '../../../public/assets/images/icon-arrow-down.svg';
 import {twMerge} from 'tailwind-merge';
 import {useStore} from '../store';
-
-interface SelectBoxProps {
-  className: string;
-}
+import {SelectBoxProps} from '../types/SelectBoxProps';
 
 export default function SelectBox({className}: SelectBoxProps) {
   const selectMenuRef = useRef<HTMLDivElement>(null);

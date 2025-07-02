@@ -1,15 +1,13 @@
 import Image from 'next/image';
-
-interface NoResultsProps {
-  data: {title: string; message: string; resolution: string};
-}
+import confusedEmoji from '../../../public/assets/images/confused-face.png';
+import {NoResultsProps} from '../types/NoResultsProps';
 
 export default function NoResults({data}: NoResultsProps) {
   return (
     <div className="mt-[7rem] flex flex-col items-center gap-[2rem] mx-auto w-[90%] max-w-[736px]">
       <Image
         className="confused-face"
-        src="/assets/images/confused-face.png"
+        src={confusedEmoji}
         alt=""
         width={64}
         height={64}

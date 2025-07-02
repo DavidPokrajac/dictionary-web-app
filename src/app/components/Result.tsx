@@ -4,32 +4,14 @@ import useSWR from 'swr';
 import NoResults from './NoResults';
 import {Fragment} from 'react';
 import Image from 'next/image';
+import newWindow from '../../../public/assets/images/icon-new-window.svg';
 import PlayIcon from './PlayIcon';
 import {v4 as uuidv4} from 'uuid';
 import {changeStyles} from '../utils/helpers';
 import {useStore} from '../store';
-
-interface PostProps {
-  word: string;
-  phonetic: string;
-  meanings: {
-    partOfSpeech: string;
-    synonyms: string[];
-    definitions: {definition: string}[];
-  }[];
-  sourceUrls: [string];
-}
-
-interface MeaningProps {
-  partOfSpeech: string;
-  synonyms: string[];
-  definitions: {definition: string; example?: string}[];
-}
-
-interface DefinitionProps {
-  definition: string;
-  example?: string;
-}
+import {PostProps, MeaningProps, DefinitionProps} from '../types/ResultProps';
+import Loading from './Loading';
+import Error from './Error';
 
 const fetcher = (url: string) => fetch(url).then(r => r.json());
 
@@ -40,8 +22,8 @@ export default function Result({searchTerm}: {searchTerm: string}) {
   );
 
   const font = useStore(state => state.selectedFont);
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (isLoading) return <Loading />;
+  if (error) return <Error error={error.message} />;
 
   return (
     <ul className="w-[90%] sm:w-[95%] lg:max-w-[736px] mx-auto list-none mt-5 md:[mt-10]">
@@ -122,12 +104,7 @@ export default function Result({searchTerm}: {searchTerm: string}) {
                   <span className="underline mr-[0.5rem] dark:text-(--clr-primary-100) dark:no-underline">
                     {post.sourceUrls[0]}
                   </span>
-                  <Image
-                    src="/assets/images/icon-new-window.svg"
-                    alt=""
-                    width={12}
-                    height={12}
-                  />
+                  <Image src={newWindow} alt="" width={12} height={12} />
                 </div>
               </article>
             </li>

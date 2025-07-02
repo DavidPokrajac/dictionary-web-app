@@ -1,16 +1,11 @@
 'use client';
 
-import React, {ChangeEvent} from 'react';
-
-interface SearchInputProps {
-  value: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-}
+import {SearchInputProps} from '../types/SearchInputProps';
 
 export default function SearchInput({value, onChange}: SearchInputProps) {
   return (
     <div className="w-[90%] sm:w-[95%] lg:w-full lg:max-w-[736px] mx-auto">
-      <div className="input-wrapper relative">
+      <div className="input-wrapper relative  before:bg-(--clr-primary-200) dark:before:bg-(--clr-primary-700)">
         <input
           type="text"
           value={value}
