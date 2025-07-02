@@ -12,9 +12,9 @@
   --clr-primary-800: rgb(5, 5, 5);
   --clr-accent-400: rgb(164, 69, 237);
   --clr-error-400: rgb(255, 82, 82);
-  --font-serif: var(--font-inconsolata-serif);
+  --font-serif: var(--font-lora-serif);
   --font-sans: var(--font-inter-sans);
-  --font-mono: var(--font-lora-mono);
+  --font-mono: var(--font-inconsolata-mono);
   --text-main: 4rem;
   --text-h2: 1.5rem;
   --text-h3: 1.25rem;
@@ -64,6 +64,10 @@ input[type='checkbox'] {
   padding: 3px;
 }
 
+input[type='checkbox']:hover {
+  cursor: pointer;
+}
+
 input[type='checkbox']::before {
   content: '';
   position: absolute;
@@ -86,8 +90,14 @@ select {
   background-repeat: no-repeat;
   background-size: 12px 6px;
   background-position: right 0 top 15px;
-  padding-right: 2rem;
+  padding-right: 1.25rem;
   height: 100%;
+}
+
+@media (min-width: 640px) {
+  select {
+    padding-right: 2rem;
+  }
 }
 
 .transition {
@@ -110,4 +120,25 @@ select {
 
 select:focus-within option:hover {
   box-shadow: 0 0 10px 10px #1ba1e2 inset;
+}
+
+#play-icon:hover {
+  fill: var(--clr-accent-400);
+  cursor: pointer;
+}
+
+#play-icon:hover circle {
+  opacity: 1;
+}
+
+#play-icon:hover path {
+  fill: white;
+}
+
+/* .select-menu {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+} */
+
+.select-menu > * + * {
+  margin-top: 1rem;
 }

@@ -3,15 +3,21 @@
 import {useState, useEffect} from 'react';
 import Image from 'next/image';
 import logo from '../../../public/assets/images/logo.svg';
-import moon from '../../../public/assets/images/icon-moon.svg';
 import {changeFontFamily} from '../utils/helpers';
+import MoonIcon from './MoonIcon';
+import SelectBox from './SelectBox';
 
 export default function Header() {
-  const [selectedFont, setSelectedFont] = useState<string>('');
+  const [isSelectMenuOpen, setIsSelectMenuOpen] = useState<boolean>(false);
+  const [selectedFont, setSelectedFont] = useState<string>('Sans-serif');
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
   function darkModeHandle() {
     setIsDarkMode(!isDarkMode);
+  }
+
+  function selectMenuAppearHandle() {
+    setIsSelectMenuOpen(!isSelectMenuOpen);
   }
 
   useEffect(() => {
@@ -22,8 +28,13 @@ export default function Header() {
     }
   }, [isDarkMode]);
 
-  function fontOptionsHandle(event: React.ChangeEvent<HTMLSelectElement>) {
-    setSelectedFont(event.target.value);
+  function fontOptionsHandle(
+    event: React.MouseEvent<HTMLSpanElement>,
+    value: string
+  ) {
+    event.stopPropagation();
+    setSelectedFont(value);
+    setIsSelectMenuOpen(false);
   }
 
   useEffect(() => {
@@ -31,10 +42,8 @@ export default function Header() {
     changeFontFamily(body, selectedFont);
   }, [selectedFont]);
 
-  console.log(isDarkMode);
-
   return (
-    <header className="flex w-[90%] sm:w-[95%] lg:max-w-[736px] mx-auto justify-between mt-5 md:mt-10">
+    <header className="flex w-[90%] sm:w-[95%] lg:w-full lg:max-w-[736px] mx-auto justify-between mt-5 md:mt-10 mb-5 md:mb-10">
       <div className="grow-1">
         <Image
           src={logo}
@@ -44,23 +53,22 @@ export default function Header() {
           className="sm:w-[32px] sm:h-[36px]"
         />
       </div>
-      <select
+      <SelectBox
         value={selectedFont}
         onChange={fontOptionsHandle}
-        className="font-bold text-h5 sm:text-h4 text-end dark:text-(--clr-primary-100)">
-        <option value="sans-serif">Sans Serif</option>
-        <option value="serif">Serif</option>
-        <option value="mono">Mono</option>
-      </select>
-      <div className="theme-wrapper flex items-center gap-[1.5rem] ml-[1.5rem]">
+        className="font-bold text-h5 sm:text-h4 text-end dark:text-(--clr-primary-100)"
+        onAppear={selectMenuAppearHandle}
+        isSelectMenuOpen={isSelectMenuOpen}
+      />
+      <div className="theme-wrapper flex items-center gap-[1rem] sm:gap-[1.5rem] ml-[0.75rem] sm:ml-[1.5rem]">
         <input
           type="checkbox"
           name=""
           id=""
           onChange={darkModeHandle}
-          className="bg-(--clr-primary-400) dark:bg-(--clr-accent-400)"
+          className="bg-(--clr-primary-400) dark:bg-(--clr-accent-400) hover:bg-(--clr-accent-400) hover:cursor-pointer"
         />
-        <Image src={moon} alt="" width={20} height={20} />
+        <MoonIcon />
       </div>
     </header>
   );

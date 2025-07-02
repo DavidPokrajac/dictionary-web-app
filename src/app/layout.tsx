@@ -4,7 +4,7 @@ import './globals.css';
 
 const inconsolata = localFont({
   src: '../../public/assets/fonts/inconsolata/Inconsolata-VariableFont_wdth,wght.woff2',
-  variable: '--font-inconsolata-serif'
+  variable: '--font-inconsolata-mono'
 });
 
 const inter = localFont({
@@ -23,7 +23,7 @@ const lora = localFont({
       style: 'italic'
     }
   ],
-  variable: '--font-lora-mono'
+  variable: '--font-lora-serif'
 });
 
 export const metadata: Metadata = {
@@ -38,9 +38,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inconsolata.variable} ${inter.variable} ${lora.variable} antialiased transition dark:bg-(--clr-primary-800)`}>
-      <body className="text-center grid gap-5 sm:gap-10 justify-center">
-        {children}
-      </body>
+      <body className="text-center">{children}</body>
     </html>
   );
 }

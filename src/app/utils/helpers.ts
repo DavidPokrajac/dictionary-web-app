@@ -1,12 +1,12 @@
 export function changeFontFamily(body: HTMLBodyElement, font: string) {
   switch (font) {
-    case 'sans-serif':
+    case 'Sans-serif':
       body.style.fontFamily = 'var(--font-sans)';
       break;
-    case 'mono':
+    case 'Mono':
       body.style.fontFamily = 'var(--font-mono)';
       break;
-    case 'serif':
+    case 'Serif':
       body.style.fontFamily = 'var(--font-serif)';
       break;
   }
