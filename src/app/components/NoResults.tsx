@@ -8,10 +8,12 @@ export default function NoResults({data}: NoResultsProps) {
   return (
     <div className="mt-[7rem] flex flex-col items-center gap-[2rem] mx-auto w-[90%] max-w-[736px]">
       <Image
+        className="confused-face"
         src="/assets/images/confused-face.png"
         alt=""
         width={64}
         height={64}
+        priority={true}
       />
       <p className="text-h3 text-(--clr-primary-800) dark:text-(--clr-primary-100) font-bold">
         {data.title}

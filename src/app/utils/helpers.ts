@@ -11,3 +11,16 @@ export function changeFontFamily(body: HTMLBodyElement, font: string) {
       break;
   }
 }
+
+export function changeStyles(font: string) {
+  switch (font) {
+    case 'Sans-serif':
+      return 'italic' as string;
+      break;
+    case 'Serif':
+      return 'font-thin' as string;
+      break;
+    case 'Mono':
+      return 'not-italic' as string;
+  }
+}

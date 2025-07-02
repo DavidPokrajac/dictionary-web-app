@@ -6,6 +6,8 @@ import {Fragment} from 'react';
 import Image from 'next/image';
 import PlayIcon from './PlayIcon';
 import {v4 as uuidv4} from 'uuid';
+import {changeStyles} from '../utils/helpers';
+import {useStore} from '../store';
 
 interface PostProps {
   word: string;
@@ -37,6 +39,7 @@ export default function Result({searchTerm}: {searchTerm: string}) {
     fetcher
   );
 
+  const font = useStore(state => state.selectedFont);
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
@@ -59,8 +62,11 @@ export default function Result({searchTerm}: {searchTerm: string}) {
                 {post.meanings.map((meaning: MeaningProps) => {
                   return (
                     <div className="main-content max-w-[736px]" key={uuidv4()}>
-                      <span className="flex items-center space-between gap-[1rem] text-(--clr-primary-800) dark:text-(--clr-primary-100) text-h4 sm:text-h2 font-bold relative part-of-speech max-w-[736px]">
-                        <span>{meaning.partOfSpeech}</span>
+                      <span className="flex items-center space-between gap-[1.1875rem] sm:gap-[2rem] text-(--clr-primary-800) dark:text-(--clr-primary-100) text-h4 sm:text-h2 font-bold relative part-of-speech max-w-[736px]">
+                        <span
+                          className={`part-of-speech ${changeStyles(font)}`}>
+                          {meaning.partOfSpeech}
+                        </span>
                         <hr className="h-[2px] w-[100%] text-(--clr-primary-300) dark:text-(--clr-primary-500)" />
                       </span>
                       <div className="max-w-[736px]">

@@ -135,10 +135,10 @@ select:focus-within option:hover {
   fill: white;
 }
 
-/* .select-menu {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-} */
-
 .select-menu > * + * {
   margin-top: 1rem;
+}
+
+.confused-face {
+  clip-path: circle(45%);
 }
