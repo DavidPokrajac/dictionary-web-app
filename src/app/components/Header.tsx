@@ -8,9 +8,13 @@ import MoonIcon from './MoonIcon';
 import SelectBox from './SelectBox';
 import {useSelectedFontStore} from '../stores/selectedFontStore';
 import {useDarkModeStore} from '../stores/darkModeStore';
+import useLocalStorageStore from '../stores/useLocalStorageStore';
 
 export default function Header() {
-  const isDarkMode = useDarkModeStore(state => state.isDarkMode);
+  const isDarkMode = useLocalStorageStore(
+    useDarkModeStore,
+    state => state.isDarkMode
+  );
   const font = useSelectedFontStore(state => state.selectedFont);
   const darkModeHandle = useDarkModeStore(state => state.darkModeHandle);
 
@@ -45,7 +49,8 @@ export default function Header() {
           name=""
           id=""
           onChange={darkModeHandle}
-          className="bg-(--clr-primary-400) dark:bg-(--clr-accent-400) hover:bg-(--clr-accent-400) hover:cursor-pointer"
+          checked={isDarkMode}
+          className={`bg-(--clr-primary-400) dark:bg-(--clr-accent-400) hover:bg-(--clr-accent-400) hover:cursor-pointer ${isDarkMode ? 'checked:before:left-[calc(100%-17px)]' : 'before:left-[3px]'}`}
         />
         <MoonIcon />
       </div>

@@ -13,7 +13,7 @@ interface SelectedFontProps {
 export const useSelectedFontStore = create<SelectedFontProps>()(
   persist(
     set => ({
-      selectedFont: '',
+      selectedFont: 'Sans-serif',
       handleFontChange: (event, value) =>
         set(() => {
           event?.stopPropagation();

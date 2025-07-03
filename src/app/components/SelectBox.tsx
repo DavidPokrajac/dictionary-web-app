@@ -7,6 +7,7 @@ import {twMerge} from 'tailwind-merge';
 import {useStore} from '../stores/store';
 import {SelectBoxProps} from '../types/SelectBoxProps';
 import {useSelectedFontStore} from '../stores/selectedFontStore';
+import useLocalStorageStore from '../stores/useLocalStorageStore';
 
 export default function SelectBox({className}: SelectBoxProps) {
   const selectMenuRef = useRef<HTMLDivElement>(null);
@@ -31,7 +32,10 @@ export default function SelectBox({className}: SelectBoxProps) {
           className
         )}
         onClick={onAppear}>
-        {useSelectedFontStore(state => state.selectedFont)}{' '}
+        {useLocalStorageStore(
+          useSelectedFontStore,
+          state => state.selectedFont
+        )}{' '}
         <Image src={iconArrowDown} alt="" width={12} height={6} />
       </span>
       <div
