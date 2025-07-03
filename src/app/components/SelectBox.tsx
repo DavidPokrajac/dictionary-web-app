@@ -6,6 +6,7 @@ import iconArrowDown from '../../../public/assets/images/icon-arrow-down.svg';
 import {twMerge} from 'tailwind-merge';
 import {useStore} from '../store';
 import {SelectBoxProps} from '../types/SelectBoxProps';
+import {useSelectedFontStore} from '../selectedFontStore';
 
 export default function SelectBox({className}: SelectBoxProps) {
   const selectMenuRef = useRef<HTMLDivElement>(null);
@@ -19,8 +20,7 @@ export default function SelectBox({className}: SelectBoxProps) {
     }
   }, [isSelectMenuOpen]);
 
-  const handleChange = useStore(state => state.handleFontChange);
-
+  const handleChange = useSelectedFontStore(state => state.handleFontChange);
   const onAppear = useStore(state => state.selectMenuAppearHandle);
 
   return (
@@ -31,12 +31,12 @@ export default function SelectBox({className}: SelectBoxProps) {
           className
         )}
         onClick={onAppear}>
-        {useStore(state => state.selectedFont)}{' '}
+        {useSelectedFontStore(state => state.selectedFont)}{' '}
         <Image src={iconArrowDown} alt="" width={12} height={6} />
       </span>
       <div
         ref={selectMenuRef}
-        className="select-menu dark:bg-(--clr-primary-700) dark:text-(--clr-primary-100) shadow-[0_2px_10px_rgba(0,0,0,0.2)] dark:shadow-[0_2px_25px_rgb(164,69,237)] absolute top-10 right-0 bg-white rounded-2xl p-[1.5rem] z-2 w-[12rem] text-start">
+        className="select-menu hidden dark:bg-(--clr-primary-700) dark:text-(--clr-primary-100) shadow-[0_2px_10px_rgba(0,0,0,0.2)] dark:shadow-[0_2px_25px_rgb(164,69,237)] absolute top-10 right-0 bg-white rounded-2xl p-[1.5rem] z-2 w-[12rem] text-start">
         <span
           onClick={event => handleChange(event, 'Sans-serif')}
           className="block font-sans font-bold text-h4 hover:text-(--clr-accent-400) hover:cursor-pointer">
