@@ -3,7 +3,7 @@
 import SearchInput from './components/SearchInput';
 import Header from './components/Header';
 import {Suspense, lazy, useEffect} from 'react';
-import {useStore} from './store';
+import {useStore} from './stores/store';
 import Loading from './components/Loading';
 
 const Result = lazy(() => import('./components/Result'));

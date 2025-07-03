@@ -4,9 +4,9 @@ import {useRef, useEffect} from 'react';
 import Image from 'next/image';
 import iconArrowDown from '../../../public/assets/images/icon-arrow-down.svg';
 import {twMerge} from 'tailwind-merge';
-import {useStore} from '../store';
+import {useStore} from '../stores/store';
 import {SelectBoxProps} from '../types/SelectBoxProps';
-import {useSelectedFontStore} from '../selectedFontStore';
+import {useSelectedFontStore} from '../stores/selectedFontStore';
 
 export default function SelectBox({className}: SelectBoxProps) {
   const selectMenuRef = useRef<HTMLDivElement>(null);

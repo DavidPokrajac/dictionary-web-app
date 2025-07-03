@@ -1,5 +1,6 @@
 import {create} from 'zustand';
 import {persist} from 'zustand/middleware';
+import {useStore} from './store';
 
 interface SelectedFontProps {
   selectedFont: string;
@@ -16,7 +17,8 @@ export const useSelectedFontStore = create<SelectedFontProps>()(
       handleFontChange: (event, value) =>
         set(() => {
           event?.stopPropagation();
-          return {selectedFont: value, isSelectMenuOpen: false};
+          useStore.setState({isSelectMenuOpen: false});
+          return {selectedFont: value};
         })
     }),
     {name: 'selected-font'}

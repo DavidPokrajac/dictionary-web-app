@@ -6,8 +6,8 @@ import logo from '../../../public/assets/images/logo.svg';
 import {changeFontFamily} from '../utils/helpers';
 import MoonIcon from './MoonIcon';
 import SelectBox from './SelectBox';
-import {useSelectedFontStore} from '../selectedFontStore';
-import {useDarkModeStore} from '../darkModeStore';
+import {useSelectedFontStore} from '../stores/selectedFontStore';
+import {useDarkModeStore} from '../stores/darkModeStore';
 
 export default function Header() {
   const isDarkMode = useDarkModeStore(state => state.isDarkMode);

@@ -1,9 +1,9 @@
 import Skeleton, {SkeletonTheme} from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import {useStore} from '../store';
+import {useDarkModeStore} from '../stores/darkModeStore';
 
 export default function Loading() {
-  const isDarkMode = useStore(state => state.isDarkMode);
+  const isDarkMode = useDarkModeStore(state => state.isDarkMode);
   return (
     <div className="flex flex-col h-[80vh] justify-center w-[90%] sm:w-[95%] lg:w-full lg:max-w-[736px] mx-auto">
       <h1 className="font-bold text-3xl sm:text-5xl dark:text-(--clr-primary-100)">

@@ -8,7 +8,7 @@ import newWindow from '../../../public/assets/images/icon-new-window.svg';
 import PlayIcon from './PlayIcon';
 import {v4 as uuidv4} from 'uuid';
 import {changeStyles} from '../utils/helpers';
-import {useStore} from '../store';
+import {useSelectedFontStore} from '../stores/selectedFontStore';
 import {PostProps, MeaningProps, DefinitionProps} from '../types/ResultProps';
 import Loading from './Loading';
 import Error from './Error';
@@ -21,7 +21,7 @@ export default function Result({searchTerm}: {searchTerm: string}) {
     fetcher
   );
 
-  const font = useStore(state => state.selectedFont);
+  const font = useSelectedFontStore(state => state.selectedFont);
   if (isLoading) return <Loading />;
   if (error) return <Error error={error.message} />;
 
