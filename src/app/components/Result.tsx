@@ -26,13 +26,14 @@ export default function Result({searchTerm}: {searchTerm: string}) {
   if (error) return <Error error={error.message} />;
 
   return (
-    <ul className="w-[90%] sm:w-[95%] lg:max-w-[736px] mx-auto list-none mt-5 md:[mt-10]">
+    <ul
+      className={`w-[90%] sm:w-[95%] lg:max-w-[736px] mx-auto list-none result-list ${data.length === 1 ? 'content-start' : 'content-center'}`}>
       {data.length > 0 ? (
         data.map((post: PostProps) => {
           return (
             <li key={uuidv4()}>
               <article className="main-content text-left">
-                <div className="grid grid-cols-2 grid-rows-[auto_auto] items-center max-w-[736px]">
+                <div className="grid grid-cols-[1fr_1fr] grid-rows-[auto_auto] items-center lg:max-w-[736px] w-full">
                   <h2 className="text-[2rem] sm:text-main font-bold dark:text-(--clr-primary-100)">
                     {post.word}
                   </h2>
@@ -43,15 +44,17 @@ export default function Result({searchTerm}: {searchTerm: string}) {
                 </div>
                 {post.meanings.map((meaning: MeaningProps) => {
                   return (
-                    <div className="main-content max-w-[736px]" key={uuidv4()}>
-                      <span className="flex items-center space-between gap-[1.1875rem] sm:gap-[2rem] text-(--clr-primary-800) dark:text-(--clr-primary-100) text-h4 sm:text-h2 font-bold relative part-of-speech max-w-[736px]">
+                    <div
+                      className="main-content lg:max-w-[736px]"
+                      key={uuidv4()}>
+                      <span className="flex items-center space-between gap-[1.1875rem] sm:gap-[2rem] text-(--clr-primary-800) dark:text-(--clr-primary-100) text-h4 sm:text-h2 font-bold relative part-of-speech lg:max-w-[736px]">
                         <span
                           className={`part-of-speech ${changeStyles(font)}`}>
                           {meaning.partOfSpeech}
                         </span>
                         <hr className="h-[2px] w-[100%] text-(--clr-primary-300) dark:text-(--clr-primary-500)" />
                       </span>
-                      <div className="max-w-[736px]">
+                      <div className="lg:max-w-[736px]">
                         <p className="text-(--clr-primary-400) sm:text-h3 mb-4">
                           Meaning
                         </p>

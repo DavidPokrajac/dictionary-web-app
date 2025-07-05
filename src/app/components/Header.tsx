@@ -32,7 +32,7 @@ export default function Header() {
   }, [font]);
 
   return (
-    <header className="flex w-[90%] sm:w-[95%] lg:w-full lg:max-w-[736px] mx-auto justify-between mt-5 md:mt-10 mb-5 md:mb-10">
+    <header className="flex w-[90%] sm:w-[95%] lg:w-full lg:max-w-[736px] mx-auto justify-between">
       <div className="grow-1">
         <Image
           src={logo}
@@ -46,10 +46,10 @@ export default function Header() {
       <div className="theme-wrapper flex items-center gap-[1rem] sm:gap-[1.5rem] ml-[0.75rem] sm:ml-[1.5rem]">
         <input
           type="checkbox"
-          name=""
+          name="theme"
           id=""
-          onChange={darkModeHandle}
           checked={isDarkMode}
+          onChange={darkModeHandle}
           className={`bg-(--clr-primary-400) dark:bg-(--clr-accent-400) hover:bg-(--clr-accent-400) hover:cursor-pointer ${isDarkMode ? 'checked:before:left-[calc(100%-17px)]' : 'before:left-[3px]'}`}
         />
         <MoonIcon />

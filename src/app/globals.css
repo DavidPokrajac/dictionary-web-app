@@ -40,8 +40,16 @@
   margin-top: 1rem;
 }
 
+.result-list > * + * {
+  margin-top: 2rem;
+}
+
 .input-wrapper::before {
-  content: url('../../public/assets/images/icon-search.svg');
+  content: '';
+  background-image: url('../../public/assets/images/icon-search.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 1rem 1rem;
   width: 2rem;
   height: 2rem;
   position: absolute;
@@ -78,7 +86,6 @@ input[type='checkbox']:hover {
 input[type='checkbox']::before {
   content: '';
   position: absolute;
-  /* left: 3px; */
   top: 3px;
   height: 14px;
   aspect-ratio: 1 / 1;
@@ -86,10 +93,6 @@ input[type='checkbox']::before {
   border-radius: 100vw;
   transition: all 0.25s ease-in-out;
 }
-
-/* input[type='checkbox']:checked::before {
-  left: calc(100% - 17px);
-} */
 
 select {
   appearance: none;

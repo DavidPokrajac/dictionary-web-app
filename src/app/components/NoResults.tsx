@@ -4,7 +4,7 @@ import {NoResultsProps} from '../types/NoResultsProps';
 
 export default function NoResults({data}: NoResultsProps) {
   return (
-    <div className="mt-[7rem] flex flex-col items-center gap-[2rem] mx-auto w-[90%] max-w-[736px]">
+    <div className="flex flex-col items-center gap-[2rem] mx-auto w-[90%] max-w-[736px]">
       <Image
         className="confused-face"
         src={confusedEmoji}

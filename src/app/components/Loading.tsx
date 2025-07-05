@@ -5,7 +5,7 @@ import {useDarkModeStore} from '../stores/darkModeStore';
 export default function Loading() {
   const isDarkMode = useDarkModeStore(state => state.isDarkMode);
   return (
-    <div className="flex flex-col h-[80vh] justify-center w-[90%] sm:w-[95%] lg:w-full lg:max-w-[736px] mx-auto">
+    <div className="flex flex-col justify-center w-[90%] sm:w-[95%] lg:w-full lg:max-w-[736px] mx-auto">
       <h1 className="font-bold text-3xl sm:text-5xl dark:text-(--clr-primary-100)">
         Loading...
       </h1>
